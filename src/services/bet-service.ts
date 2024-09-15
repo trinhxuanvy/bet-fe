@@ -6,8 +6,7 @@ import { ProviderBet } from "@/enums";
 const HEADER = {
   "Content-Type": "application/json",
 };
-
-console.log(import.meta.env);
+const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
 
 // Define the composable
 export function useBetService() {
@@ -20,7 +19,9 @@ export function useBetService() {
     loading.value = true;
     error.value = null;
     try {
-      const response = await axios.get<BetModel[]>(`/api/unmapping`);
+      const response = await axios.get<BetModel[]>(
+        `${VITE_BASE_URL}/unmapping`
+      );
       console.log(response.data);
       bets.value = response.data;
 
@@ -52,9 +53,13 @@ export function useBetService() {
     };
 
     try {
-      await axios.post<boolean>(`/api/mapping`, JSON.stringify(data), {
-        headers: HEADER,
-      });
+      await axios.post<boolean>(
+        `${VITE_BASE_URL}/mapping`,
+        JSON.stringify(data),
+        {
+          headers: HEADER,
+        }
+      );
     } catch (err) {
       error.value = "Error placing bet: " + (err as Error).message;
     } finally {
