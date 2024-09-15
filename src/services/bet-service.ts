@@ -53,13 +53,9 @@ export function useBetService() {
     };
 
     try {
-      await axios.post<boolean>(
-        `${VITE_BASE_URL}/mapping`,
-        JSON.stringify(data),
-        {
-          headers: HEADER,
-        }
-      );
+      await axios.post<boolean>(`/api/mapping`, JSON.stringify(data), {
+        headers: HEADER,
+      });
     } catch (err) {
       error.value = "Error placing bet: " + (err as Error).message;
     } finally {
