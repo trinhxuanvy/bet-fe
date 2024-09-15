@@ -47,7 +47,6 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
-      "/foo": "https://bet-fe.netlify.app",
       "/api": {
         target: "https://bet-to-die-latest.onrender.com",
         changeOrigin: true,
