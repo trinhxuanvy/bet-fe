@@ -560,15 +560,6 @@ function resetManual() {
   state.thunderManualPickList = [];
 }
 
-function isValidURL(urlString: string): boolean {
-  try {
-    new URL(urlString);
-    return true;
-  } catch (_) {
-    return false;
-  }
-}
-
 function searchData() {
   state.dataListSearch = state.keySearch.length
     ? cloneDeep(state.dataList).filter(

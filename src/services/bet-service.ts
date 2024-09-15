@@ -2,7 +2,6 @@ import { ref } from "vue";
 import axios from "axios";
 import { BetModel, ProviderModel } from "@/models";
 import { ProviderBet } from "@/enums";
-import { normalizeUrl } from "@/utils";
 
 const HEADER = {
   "Content-Type": "application/json",
