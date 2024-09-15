@@ -21,9 +21,7 @@ export function useBetService() {
     loading.value = true;
     error.value = null;
     try {
-      const response = await axios.get<BetModel[]>(
-        `${VITE_BASE_URL}/unmapping`
-      );
+      const response = await axios.get<BetModel[]>(`/api/unmapping`);
       console.log(response.data);
       bets.value = response.data;
 
