@@ -44,17 +44,18 @@ export default defineConfig({
     },
     extensions: [".js", ".json", ".jsx", ".mjs", ".ts", ".tsx", ".vue"],
   },
-  // server: {
-  //   port: 3000,
-  //   proxy: {
-  //     "/api": {
-  //       target: "https://bet-to-die-latest.onrender.com",
-  //       changeOrigin: true,
-  //       rewrite: (path) => {
-  //         console.log(path, "hello", process.env.VITE_BASE_URL);
-  //         return path.replace(/^\/api/, "");
-  //       },
-  //     },
-  //   },
-  // },
+  server: {
+    port: 3000,
+    proxy: {
+      "/foo": "https://66e6f224b9628c00afccb9c1--bet-fe.netlify.app",
+      "/api": {
+        target: "https://bet-to-die-latest.onrender.com",
+        changeOrigin: true,
+        rewrite: (path) => {
+          console.log(path, "hello", process.env.VITE_BASE_URL);
+          return path.replace(/^\/api/, "");
+        },
+      },
+    },
+  },
 });
