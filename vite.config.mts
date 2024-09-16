@@ -44,17 +44,17 @@ export default defineConfig({
     },
     extensions: [".js", ".json", ".jsx", ".mjs", ".ts", ".tsx", ".vue"],
   },
-  // server: {
-  //   port: 3000,
-  //   proxy: {
-  //     "/api": {
-  //       target: "https://bet-to-die-latest.onrender.com",
-  //       changeOrigin: true,
-  //       secure: false,
-  //       rewrite: (path) => {
-  //         return path.replace(/^\/api/, "");
-  //       },
-  //     },
-  //   },
-  // },
+  server: {
+    port: 3000,
+    proxy: {
+      "/api": {
+        target: "https://bet-to-die-latest.onrender.com",
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => {
+          return path.replace(/^\/api/, "");
+        },
+      },
+    },
+  },
 });
